@@ -1,6 +1,6 @@
 import { DivStyles } from '@/types';
 
-export const initialState: DivStyles = {
+export const initialDivStyle: DivStyles = {
   width: {
     value: 200,
     unit: 'px',
