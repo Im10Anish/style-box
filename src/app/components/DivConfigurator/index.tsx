@@ -1,8 +1,13 @@
+'use client';
+
 const DivConfigurator: React.FC = () => {
   return (
-    <div>
-      <h1>Div Configurator</h1>
-      <p>Configure your div here!</p>
+    <div className="flex h-screen bg-gray-100">
+      <div className="flex flex-col flex-grow w-[70%]">
+        <div className="h-1/2">Preview</div>
+        <div className="h-1/2">Code</div>
+      </div>
+      <div className="w-[30%]">ControlPanel</div>
     </div>
   );
 };
