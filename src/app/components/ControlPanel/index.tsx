@@ -2,6 +2,7 @@
 import { DivStyles, ValueWithUnit } from '@/types';
 import React from 'react';
 import DimensionsControl from '@/app/ui/DimensionsControl';
+import BackgroundControl from '@/app/ui/BackgroundControl';
 
 interface ControlSectionProps {
   divStyles: DivStyles;
@@ -16,6 +17,20 @@ const ControlSection: React.FC<ControlSectionProps> = ({ divStyles, setDivStyles
     }));
   };
 
+  const updateNestedProperty = (
+    parent: keyof DivStyles,
+    property: string,
+    value: string | number | boolean | object
+  ) => {
+    setDivStyles((prev) => ({
+      ...prev,
+      [parent]: {
+        ...(typeof prev[parent] === 'object' && prev[parent] !== null ? prev[parent] : {}),
+        [property]: value,
+      },
+    }));
+  };
+
   return (
     <div className="h-full bg-gray-50 border-1 border-gray-200 overflow-auto">
       <div className="sticky top-0 z-10 bg-gray-50 px-4 py-3 border-b border-gray-200">
@@ -23,6 +38,7 @@ const ControlSection: React.FC<ControlSectionProps> = ({ divStyles, setDivStyles
       </div>
       <div className="p-4 space-y-4">
         <DimensionsControl divStyles={divStyles} updateProperty={updateProperty} />
+        <BackgroundControl divStyles={divStyles} updateNestedProperty={updateNestedProperty} />
       </div>
     </div>
   );
