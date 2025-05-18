@@ -2,6 +2,7 @@
 import { DivStyles, Unit, ValueWithUnit } from '@/types';
 import React from 'react';
 import Slider from './Slider';
+import ControlGroup from './ControlGroup';
 
 interface DimensionsControlProps {
   divStyles: DivStyles;
@@ -38,7 +39,7 @@ const DimensionsControl: React.FC<DimensionsControlProps> = ({ divStyles, update
   };
 
   return (
-    <>
+    <ControlGroup title="Dimensions">
       <Slider
         label="Width"
         value={divStyles.width.value}
@@ -61,7 +62,7 @@ const DimensionsControl: React.FC<DimensionsControlProps> = ({ divStyles, update
         onUnitChange={handleHeightUnitChange}
         units={['px', '%', 'rem', 'em', 'vh']}
       />
-    </>
+    </ControlGroup>
   );
 };
 
