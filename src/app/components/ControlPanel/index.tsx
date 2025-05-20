@@ -3,6 +3,7 @@ import { DivStyles, ValueWithUnit } from '@/types';
 import React from 'react';
 import DimensionsControl from '@/app/ui/DimensionsControl';
 import BackgroundControl from '@/app/ui/BackgroundControl';
+import BorderControl from '@/app/ui/BorderControl';
 
 interface ControlSectionProps {
   divStyles: DivStyles;
@@ -39,6 +40,7 @@ const ControlSection: React.FC<ControlSectionProps> = ({ divStyles, setDivStyles
       <div className="p-4 space-y-4">
         <DimensionsControl divStyles={divStyles} updateProperty={updateProperty} />
         <BackgroundControl divStyles={divStyles} updateNestedProperty={updateNestedProperty} />
+        <BorderControl divStyles={divStyles} updateNestedProperty={updateNestedProperty} />
       </div>
     </div>
   );
